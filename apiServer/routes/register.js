@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const MongoClient = require('mongodb').MongoClient;
-const uri = '';
+const uri = 'mongodb+srv://ProcioneOuO:enoicorp13@cluster0.4jsac.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 /* POST */
 router.post('/', function(req, res) {
@@ -13,7 +13,7 @@ router.post('/', function(req, res) {
 
     client.connect(err => {
         var len;
-        const collection = client.db("").collection("");
+        const collection = client.db("usersData").collection("users");
         collection.find({ 'username': `${username}` }).toArray((err, result) => {
             if (err) console.log(err.message);
             else {
