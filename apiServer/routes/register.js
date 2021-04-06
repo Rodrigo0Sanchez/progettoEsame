@@ -1,8 +1,10 @@
 var express = require('express');
+var cors = require('cors');
 var router = express.Router();
 
 const MongoClient = require('mongodb').MongoClient;
 const uri = 'mongodb+srv://ProcioneOuO:enoicorp13@cluster0.4jsac.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+router.use(cors());
 
 /* POST */
 router.post('/', function(req, res) {

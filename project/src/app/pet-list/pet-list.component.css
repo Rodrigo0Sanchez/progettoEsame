@@ -1,0 +1,41 @@
+.bg-img {
+  background-color: #b6ff94;
+  min-height: 100vh;
+  width: 100%;
+  background: url("../../assets/images/bg.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+object {
+  pointer-events: none;
+}
+
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #eee;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #eeee;
+}
+
+
+.wrapper {
+  display: flex;
+}
+
+.scroll {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}

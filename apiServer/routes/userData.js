@@ -12,10 +12,10 @@ router.post('/', function(req, res) {
 
     client.connect(err => {
         var len;
-        const collection = client.db("pets").collection(`${username}`);
+        const collection = client.db("pets").collection(username);
         collection.find().toArray((err, result) => {
             if (err) console.log(err.message);
-            res.send('');
+            res.send(result);
         });
     });
     

@@ -4,11 +4,17 @@
       <img src="/assets/images/logo.png" height="45" alt="">
     </a>
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+      <li *ngIf="loggedin == false" class="nav-item">
         <a class="nav-link" href="/login">Accedi</a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="loggedin == false" class="nav-item">
         <a class="nav-link" href="/register">Registrati</a>
+      </li>
+      <li *ngIf="loggedin == true" class="nav-item">
+        <a class="nav-link fs" href="/list">Pet List</a>
+      </li>
+      <li *ngIf="loggedin == true" class="nav-item">
+        <a class="nav-link fs" href="#" (click)="logOut()">Log out</a>
       </li>
     </ul>
   </div>

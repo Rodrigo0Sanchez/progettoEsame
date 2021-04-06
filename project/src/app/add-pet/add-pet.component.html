@@ -1,0 +1,54 @@
+<div class="container-fluid bg-img" [style.height.px]="height">
+
+<br><br><br><br><br><br><br>
+
+  <div class="row"> <!-- Form row -->
+
+    <div class="col-5 mx-auto">
+
+      <form [formGroup]="petForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label class="text-light" for="name">Name</label>
+          <input class="form-control" id="name" placeholder="Insert the name" type="text" formControlName="name" required>
+        </div>
+
+        <div class="form-group">
+          <label class="text-light" for="weight">Weight</label>
+          <input #pwd class="form-control" id="weight" placeholder="Insert weight in kg" type="text" formControlName="weight" required>
+        </div>
+
+        <div class="form-group">
+          <label class="text-light" for="color">Color</label>
+          <input #confirmPwd class="form-control" id="color" placeholder="Insert color" type="text" formControlName="color" required>
+        </div>
+
+        <div class="form-group">
+          <label class="text-light" for="eyesColor">Eyes color</label>
+          <input #confirmPwd class="form-control" id="eyesColor" placeholder="Insert eyes color" type="text" formControlName="eyesColor" required>
+        </div>
+
+        <div class="form-group">
+          <label class="text-light" for="age">Age</label>
+          <input #confirmPwd class="form-control" id="age" placeholder="Insert age" type="text" formControlName="age" required>
+        </div>
+
+        <div class="form-group">
+          <label class="text-light" for="image">Image</label><br>
+          <input #image id="image" type="file" formControlName="image" accept="image/*" (change)="onFileLoad(image)">
+        </div>
+
+        <button type="submit" class="btn btn-success" style="width: 100%;">Add</button>
+
+      </form>
+
+      <br>
+
+      <p #success class="text-success rounded p-2 bg-label-success" *ngIf="result == 3"><b>Registered!</b> Go to list to see this pet</p>
+      <p #alreadyRegistered class="text-danger rounded p-2 bg-label-danger" *ngIf="result == 2"><b>Registration failed!</b> Pet already present</p>
+      <p #missingValues class="text-danger rounded p-2 bg-label-danger" *ngIf="result == 1"><b>Registration failed!</b> You might complete the entire form</p>
+
+    </div>
+
+  </div>
+
+</div>

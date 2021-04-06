@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { bcrypt } from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +9,21 @@ import { bcrypt } from 'bcrypt';
 export class ApiService {
 
   salt: string;
-  baseUrl = `https://3000-indigo-sailfish-67vhq2fd.ws-eu03.gitpod.io/`;
+  loggedin: boolean = false;
+  baseUrl = `https://3000-bronze-jaguar-c686i5wg.ws-eu03.gitpod.io/`;
 
   constructor(private http: HttpClient) { }
 
   getSalt(): void {
-   this.http.get('assets/salt.txt', { responseType: 'text' }).subscribe(data => this.salt = data);
+   this.salt = '$2a$10$WSVz1hrhWgKTq4NhpVqA2e';
+  }
+
+  setLoginStatus(status: boolean) {
+    this.loggedin = status;
+  }
+
+  getToken() {
+    return !!localStorage.getItem("token");
   }
 
   login(username: string, password: string) {
@@ -38,7 +48,24 @@ export class ApiService {
     body = body.set('pwd', pwd);
 
     let content = this.http.post(url, body, { headers: myheader }); // result can be "done" or "existing_user"
-    console.log(content);
+
+    return content;
+  }
+
+  addPet(pet: any) {
+    let url = `${this.baseUrl}addPet/`;
+
+    const myheader = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+    let body = new HttpParams();
+    body = body.set('username', localStorage.getItem('token'));
+    body = body.set('name', pet.name);
+    body = body.set('weight', pet.weight);
+    body = body.set('color', pet.color);
+    body = body.set('eyesColor', pet.eyesColor);
+    body = body.set('age', pet.age);
+    body = body.set('pic', pet.image);
+
+    let content = this.http.post(url, body, { headers: myheader }); // result can be "done" or "existing"
 
     return content;
   }
@@ -52,6 +79,14 @@ export class ApiService {
     let content = this.http.post(url, body, { headers: myheader });
 
     return content;
+  }
+
+  public uploadImage(image: File): Observable<Response> {
+    const formData = new FormData();
+
+    formData.append('image', image);
+
+    return ;
   }
 
 }

@@ -1,0 +1,46 @@
+<div class="container-fluid bg-img" [style.height.px]="height">
+
+  <br><br><br><br>
+
+  <div class="col-5 mx-auto">
+
+    <div class="row wrapper">
+
+      <div class="col-12 scroll" [style.height.px]="height-150" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+
+        <div class="col-12 text-right">
+          <a href="/add">
+            <object data="assets/svgs/add.svg" width="32px" height="32"></object>
+          </a>
+        </div>
+
+        <div class="col-12" *ngFor="let pet of pets">
+          <div class="card mb-3" style="max-width: 100%;">
+            <div class="card-header">{{ pet.name }}</div>
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="assets/images/cane.png" class="card-img">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title"></h5>
+                  <p class="card-text">
+                    Age: {{ pet.age }}<br>
+                    Weight: {{ pet.weight }}<br>
+                    Color: {{ pet.color }}<br>
+                    Eyes Color: {{ pet.eyesColor }}<br>
+                    Age: {{ pet.age }}<br>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
