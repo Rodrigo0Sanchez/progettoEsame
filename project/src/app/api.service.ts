@@ -59,6 +59,7 @@ export class ApiService {
     let body = new HttpParams();
     body = body.set('username', localStorage.getItem('token'));
     body = body.set('name', pet.name);
+    body = body.set('race', pet.race);
     body = body.set('weight', pet.weight);
     body = body.set('color', pet.color);
     body = body.set('eyesColor', pet.eyesColor);

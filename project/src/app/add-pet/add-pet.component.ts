@@ -27,6 +27,7 @@ export class AddPetComponent {
 
   petForm = this.formBuilder.group({
     name: '',
+    race: '',
     weight: '',
     color: '',
     eyesColor: '',
@@ -54,7 +55,8 @@ export class AddPetComponent {
       (pet.weight == "") || (pet.weight == null) ||
       (pet.color == "") || (pet.color == null) ||
       (pet.eyesColor == "") || (pet.eyesColor == null) ||
-      (pet.age == "") || (pet.age == null)
+      (pet.age == "") || (pet.age == null) ||
+      (pet.race == "") || (pet.race == null)
       ) {
       console.log('Error, you must write in all text-boxes');
       this.result = 1;

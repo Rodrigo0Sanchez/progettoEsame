@@ -16,7 +16,6 @@ export class PetListComponent implements OnInit {
   ngOnInit(): void {
     this.api.getData(localStorage.getItem('token')).subscribe((data) => {
       this.pets = data;
-      console.log(data);
     })
   }
 

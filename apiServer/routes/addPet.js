@@ -10,6 +10,7 @@ router.use(cors());
 router.post('/', function(req, res) {
     var username = req.body.username;
     var petName = req.body.name;
+    var race = req.body.race;
     var weight = req.body.weight;
     var color = req.body.color;
     var eyesColor = req.body.eyesColor;
@@ -33,7 +34,7 @@ router.post('/', function(req, res) {
         });
 
         if (len != 1) {
-            var myobj = { name: `${petName}`, weight: `${weight}`, color: `${color}`, eyesColor: `${eyesColor}`, age: `${age}`, pic: `${pic}` };
+            var myobj = { name: `${petName}`, race: `${race}`, weight: `${weight}`, color: `${color}`, eyesColor: `${eyesColor}`, age: `${age}`, pic: `${pic}` };
             collection.insertOne(myobj, function(err, res) {
                 if (err) throw err;
                 console.log(`Pet ${petName} registered`);
