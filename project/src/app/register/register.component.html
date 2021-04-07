@@ -6,20 +6,22 @@
 
     <div class="col-5 mx-auto">
 
+        <h1 class="text-light" style="text-align:center">Register!</h1>
+
       <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label class="text-light" for="username">Username</label>
-          <input class="form-control" id="username" placeholder="Inserisci un nome utente" type="text" formControlName="username" required>
+          <input class="form-control" id="username" placeholder="Insert username" type="text" formControlName="username" required>
         </div>
 
         <div class="form-group">
           <label class="text-light" for="password">Password</label>
-          <input #pwd class="form-control" id="password" placeholder="Inserisci la tua password" type="password" formControlName="password" required>
+          <input #pwd class="form-control" id="password" placeholder="Insert password" type="password" formControlName="password" required>
         </div>
 
         <div class="form-group">
           <label class="text-light" for="confirmPassword">Confirm Password</label>
-          <input #confirmPwd class="form-control" id="confirmPassword" placeholder="Conferma la password" type="password" formControlName="confirmPassword" required>
+          <input #confirmPwd class="form-control" id="confirmPassword" placeholder="Confirm password" type="password" formControlName="confirmPassword" required>
         </div>
 
         <button type="submit" class="btn btn-success" style="width: 100%;">Register</button>
